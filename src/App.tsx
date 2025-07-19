@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react';
-import { 
-  BarChart3, 
-  Database, 
-  TrendingUp, 
-  Users, 
-  CheckCircle, 
+import { useState, useEffect } from "react";
+import {
+  BarChart3,
+  Database,
+  TrendingUp,
+  Users,
+  CheckCircle,
   Send,
   Phone,
   Mail,
@@ -16,8 +16,14 @@ import {
   Zap,
   Globe,
   Music,
-  DollarSign
-} from 'lucide-react';
+  DollarSign,
+} from "lucide-react";
+
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -33,9 +39,9 @@ function App() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setIsVisible(prev => ({
+            setIsVisible((prev) => ({
               ...prev,
-              [entry.target.id]: true
+              [entry.target.id]: true,
             }));
           }
         });
@@ -43,15 +49,26 @@ function App() {
       { threshold: 0.1 }
     );
 
-    const sections = document.querySelectorAll('section[id]');
+    const sections = document.querySelectorAll("section[id]");
     sections.forEach((section) => observer.observe(section));
 
     return () => observer.disconnect();
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
     setIsMenuOpen(false);
+  };
+
+  const handleTelegramClick = () => {
+    if (window.gtag) {
+      window.gtag("event", "click_telegram", {
+        event_category: "engagement",
+        event_label: "telegram_button",
+      });
+    }
+
+    window.open('https://t.me/ppestikk', '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -68,39 +85,43 @@ function App() {
                 DataAnalyst
               </span>
             </div>
-            
+
             <nav className="hidden md:flex space-x-8">
-              <button 
-                onClick={() => scrollToSection('services')}
+              <button
+                onClick={() => scrollToSection("services")}
                 className="text-gray-700 hover:text-sky-600 transition-colors"
               >
                 Услуги
               </button>
-              <button 
-                onClick={() => scrollToSection('audience')}
+              <button
+                onClick={() => scrollToSection("audience")}
                 className="text-gray-700 hover:text-sky-600 transition-colors"
               >
                 Целевая аудитория
               </button>
-              <button 
-                onClick={() => scrollToSection('trust')}
+              <button
+                onClick={() => scrollToSection("trust")}
                 className="text-gray-700 hover:text-sky-600 transition-colors"
               >
                 Преимущества
               </button>
-              <button 
-                onClick={() => scrollToSection('projects')}
+              <button
+                onClick={() => scrollToSection("projects")}
                 className="text-gray-700 hover:text-sky-600 transition-colors"
               >
                 Проекты
               </button>
             </nav>
 
-            <button 
+            <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
             >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
         </div>
@@ -109,26 +130,26 @@ function App() {
         {isMenuOpen && (
           <div className="md:hidden bg-white border-t">
             <div className="px-4 py-2 space-y-2">
-              <button 
-                onClick={() => scrollToSection('services')}
+              <button
+                onClick={() => scrollToSection("services")}
                 className="block w-full text-left px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-lg"
               >
                 Услуги
               </button>
-              <button 
-                onClick={() => scrollToSection('audience')}
+              <button
+                onClick={() => scrollToSection("audience")}
                 className="block w-full text-left px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-lg"
               >
                 Целевая аудитория
               </button>
-              <button 
-                onClick={() => scrollToSection('trust')}
+              <button
+                onClick={() => scrollToSection("trust")}
                 className="block w-full text-left px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-lg"
               >
                 Преимущества
               </button>
-              <button 
-                onClick={() => scrollToSection('projects')}
+              <button
+                onClick={() => scrollToSection("projects")}
                 className="block w-full text-left px-3 py-2 text-gray-700 hover:bg-gray-50 rounded-lg"
               >
                 Проекты
@@ -147,42 +168,43 @@ function App() {
                 <Database className="w-16 h-16 text-white" />
               </div>
             </div>
-            
+
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               <span className="bg-gradient-to-r from-sky-600 to-cyan-600 bg-clip-text text-transparent">
                 Аналитик данных
               </span>
             </h1>
-            
+
             <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Превращаю данные в инсайты, которые помогают принимать правильные бизнес-решения
+              Превращаю данные в инсайты, которые помогают принимать правильные
+              бизнес-решения
             </p>
-            
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button 
-                onClick={() => scrollToSection('services')}
+              <button
+                onClick={() => scrollToSection("services")}
                 className="bg-gradient-to-r from-sky-500 to-cyan-500 text-white px-8 py-3 rounded-lg font-medium hover:from-sky-600 hover:to-cyan-600 transition-all transform hover:scale-105 shadow-lg"
               >
                 Узнать больше
               </button>
-              <a 
-                href="https://t.me/ppestikk"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={handleTelegramClick}
                 className="bg-white text-sky-600 px-8 py-3 rounded-lg font-medium hover:bg-gray-50 transition-all transform hover:scale-105 shadow-lg border border-sky-200"
               >
                 Написать в Telegram
-              </a>
+              </button>
             </div>
           </div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section 
-        id="services" 
+      <section
+        id="services"
         className={`py-20 px-4 sm:px-6 lg:px-8 transition-all duration-1000 ${
-          isVisible.services ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          isVisible.services
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-10"
         }`}
       >
         <div className="max-w-7xl mx-auto">
@@ -202,9 +224,12 @@ function App() {
               <div className="w-16 h-16 bg-gradient-to-r from-sky-400 to-cyan-400 rounded-xl flex items-center justify-center mb-6">
                 <BarChart3 className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold mb-4 text-gray-800">Анализ данных</h3>
+              <h3 className="text-xl font-semibold mb-4 text-gray-800">
+                Анализ данных
+              </h3>
               <p className="text-gray-600 mb-4">
-                Глубокий анализ ваших бизнес-данных для выявления скрытых закономерностей и трендов
+                Глубокий анализ ваших бизнес-данных для выявления скрытых
+                закономерностей и трендов
               </p>
               <ul className="space-y-2">
                 <li className="flex items-center text-sm text-gray-600">
@@ -226,9 +251,12 @@ function App() {
               <div className="w-16 h-16 bg-gradient-to-r from-sky-400 to-cyan-400 rounded-xl flex items-center justify-center mb-6">
                 <TrendingUp className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold mb-4 text-gray-800">Визуализация</h3>
+              <h3 className="text-xl font-semibold mb-4 text-gray-800">
+                Визуализация
+              </h3>
               <p className="text-gray-600 mb-4">
-                Создание интерактивных дашбордов и отчетов для наглядного представления данных
+                Создание интерактивных дашбордов и отчетов для наглядного
+                представления данных
               </p>
               <ul className="space-y-2">
                 <li className="flex items-center text-sm text-gray-600">
@@ -250,9 +278,12 @@ function App() {
               <div className="w-16 h-16 bg-gradient-to-r from-sky-400 to-cyan-400 rounded-xl flex items-center justify-center mb-6">
                 <Database className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold mb-4 text-gray-800">Автоматизация</h3>
+              <h3 className="text-xl font-semibold mb-4 text-gray-800">
+                Автоматизация
+              </h3>
               <p className="text-gray-600 mb-4">
-                Настройка автоматических процессов сбора, обработки и анализа данных
+                Настройка автоматических процессов сбора, обработки и анализа
+                данных
               </p>
               <ul className="space-y-2">
                 <li className="flex items-center text-sm text-gray-600">
@@ -274,10 +305,12 @@ function App() {
       </section>
 
       {/* Target Audience Section */}
-      <section 
-        id="audience" 
+      <section
+        id="audience"
         className={`py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-sky-100 to-cyan-100 transition-all duration-1000 ${
-          isVisible.audience ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          isVisible.audience
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-10"
         }`}
       >
         <div className="max-w-7xl mx-auto">
@@ -288,7 +321,8 @@ function App() {
               </span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Помогаю компаниям любого размера принимать решения на основе данных
+              Помогаю компаниям любого размера принимать решения на основе
+              данных
             </p>
           </div>
 
@@ -297,9 +331,12 @@ function App() {
               <div className="w-16 h-16 bg-gradient-to-r from-sky-400 to-cyan-400 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Users className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-lg font-semibold mb-2 text-gray-800">Стартапы</h3>
+              <h3 className="text-lg font-semibold mb-2 text-gray-800">
+                Стартапы
+              </h3>
               <p className="text-gray-600 text-sm">
-                Настройка аналитики с нуля и создание культуры принятия решений на основе данных
+                Настройка аналитики с нуля и создание культуры принятия решений
+                на основе данных
               </p>
             </div>
 
@@ -307,9 +344,12 @@ function App() {
               <div className="w-16 h-16 bg-gradient-to-r from-sky-400 to-cyan-400 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Globe className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-lg font-semibold mb-2 text-gray-800">E-commerce</h3>
+              <h3 className="text-lg font-semibold mb-2 text-gray-800">
+                E-commerce
+              </h3>
               <p className="text-gray-600 text-sm">
-                Анализ поведения пользователей, оптимизация конверсий и увеличение продаж
+                Анализ поведения пользователей, оптимизация конверсий и
+                увеличение продаж
               </p>
             </div>
 
@@ -317,9 +357,12 @@ function App() {
               <div className="w-16 h-16 bg-gradient-to-r from-sky-400 to-cyan-400 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Target className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-lg font-semibold mb-2 text-gray-800">Маркетинг</h3>
+              <h3 className="text-lg font-semibold mb-2 text-gray-800">
+                Маркетинг
+              </h3>
               <p className="text-gray-600 text-sm">
-                Оценка эффективности рекламных кампаний и оптимизация маркетинговых затрат
+                Оценка эффективности рекламных кампаний и оптимизация
+                маркетинговых затрат
               </p>
             </div>
 
@@ -327,9 +370,11 @@ function App() {
               <div className="w-16 h-16 bg-gradient-to-r from-sky-400 to-cyan-400 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Award className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-lg font-semibold mb-2 text-gray-800">Крупный бизнес</h3>
+              <h3 className="text-lg font-semibold mb-2 text-gray-800">
+                Малый и средний бизнес
+              </h3>
               <p className="text-gray-600 text-sm">
-                Комплексная аналитика для управления большими объемами данных и процессов
+                Сбор полезной информации для анализа и дальнейшей оптимизации всех операционных расходов
               </p>
             </div>
           </div>
@@ -337,10 +382,12 @@ function App() {
       </section>
 
       {/* Trust Section */}
-      <section 
-        id="trust" 
+      <section
+        id="trust"
         className={`py-20 px-4 sm:px-6 lg:px-8 transition-all duration-1000 ${
-          isVisible.trust ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          isVisible.trust
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-10"
         }`}
       >
         <div className="max-w-7xl mx-auto">
@@ -359,30 +406,37 @@ function App() {
             <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all">
               <div className="flex items-center mb-4">
                 <Zap className="w-8 h-8 text-sky-500 mr-3" />
-                <h3 className="text-xl font-semibold text-gray-800">Быстрые результаты</h3>
+                <h3 className="text-xl font-semibold text-gray-800">
+                  Быстрые результаты
+                </h3>
               </div>
               <p className="text-gray-600">
-                Уже через 1-2 недели вы получите первые инсайты и рекомендации по оптимизации бизнеса
+                Уже через 1-2 недели вы получите первые инсайты и рекомендации
+                по оптимизации бизнеса
               </p>
             </div>
 
             <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all">
               <div className="flex items-center mb-4">
                 <Award className="w-8 h-8 text-sky-500 mr-3" />
-                <h3 className="text-xl font-semibold text-gray-800">Экспертиза</h3>
+                <h3 className="text-xl font-semibold text-gray-800">
+                  Экспертиза
+                </h3>
               </div>
               <p className="text-gray-600">
-                 2+ года опыта в анализе данных для малого и среднего бизнеса
+                2+ года опыта в анализе данных для малого и среднего бизнеса
               </p>
             </div>
 
             <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all">
               <div className="flex items-center mb-4">
                 <CheckCircle className="w-8 h-8 text-sky-500 mr-3" />
-                <h3 className="text-xl font-semibold text-gray-800">Гарантия качества</h3>
+                <h3 className="text-xl font-semibold text-gray-800">
+                  Гарантия качества
+                </h3>
               </div>
               <p className="text-gray-600">
-                Обсуждение полученного результата. Внесение корректировок 
+                Обсуждение полученного результата. Внесение корректировок
               </p>
             </div>
           </div>
@@ -411,10 +465,12 @@ function App() {
       </section>
 
       {/* Projects Section */}
-      <section 
-        id="projects" 
+      <section
+        id="projects"
         className={`py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-sky-50 to-cyan-50 transition-all duration-1000 ${
-          isVisible.projects ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          isVisible.projects
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-10"
         }`}
       >
         <div className="max-w-7xl mx-auto">
@@ -434,12 +490,17 @@ function App() {
               <div className="h-48 bg-gradient-to-r from-sky-200 to-cyan-200 rounded-xl mb-6 flex items-center justify-center">
                 <TrendingUp className="w-16 h-16 text-sky-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-4 text-gray-800">ИнвестТрекер</h3>
+              <h3 className="text-xl font-semibold mb-4 text-gray-800">
+                ИнвестТрекер
+              </h3>
               <p className="text-gray-600 mb-4">
-                Автоматический мониторинг стоимости и структуры ваших инвестиционных портфелей в реальном времени.
+                Автоматический мониторинг стоимости и структуры ваших
+                инвестиционных портфелей в реальном времени.
               </p>
               <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-500">Результат: Эффективный контроль стоимости инвестиций</span>
+                <span className="text-sm text-gray-500">
+                  Результат: Эффективный контроль стоимости инвестиций
+                </span>
               </div>
             </div>
 
@@ -447,12 +508,19 @@ function App() {
               <div className="h-48 bg-gradient-to-r from-sky-200 to-cyan-200 rounded-xl mb-6 flex items-center justify-center">
                 <Music className="w-16 h-16 text-sky-600" />
               </div>
-              <h3 className="text-xl font-semibold mb-4 text-gray-800">Магазин музыкальных инструментов</h3>
+              <h3 className="text-xl font-semibold mb-4 text-gray-800">
+                Магазин музыкальных инструментов
+              </h3>
               <p className="text-gray-600 mb-4">
-                Настройка процесса сбора, сортировки и обработки информации о клиентах с целью повышения качества обслуживания, персонализации предложений и оптимизации бизнес-решений.
+                Настройка процесса сбора, сортировки и обработки информации о
+                клиентах с целью повышения качества обслуживания, персонализации
+                предложений и оптимизации бизнес-решений.
               </p>
               <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-500">Результат: Улучшение клиентского опыта — +20% повторных покупок</span>
+                <span className="text-sm text-gray-500">
+                  Результат: Улучшение клиентского опыта — +20% повторных
+                  покупок
+                </span>
               </div>
             </div>
 
@@ -480,18 +548,17 @@ function App() {
                 <DollarSign className="w-16 h-16 text-white" />
               </div>
             </div>
-            
+
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               <span className="bg-gradient-to-r from-sky-600 to-cyan-600 bg-clip-text text-transparent">
                 Полностью бесплатно
               </span>
             </h1>
-            
+
             <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
               Помогаю вам наладить сбор и анализ полезных для бизнеса данных.
               Параллельно нарабатываю опыт, новые проекты для своего портфолио
             </p>
-        
           </div>
         </div>
       </section>
@@ -505,18 +572,16 @@ function App() {
           <p className="text-xl text-sky-100 mb-8 max-w-3xl mx-auto">
             Свяжитесь со мной прямо сейчас для обсуждения вашего проекта
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a 
-              href="https://t.me/ppestikk"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={handleTelegramClick}
               className="bg-white text-sky-600 px-8 py-4 rounded-lg font-medium hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg flex items-center justify-center"
             >
               <Send className="w-5 h-5 mr-2" />
               Написать в Telegram
-            </a>
-            <a 
+            </button>
+            <a
               href="mailto:shamanka.commercial@gmail.com"
               className="bg-sky-700 text-white px-8 py-4 rounded-lg font-medium hover:bg-sky-800 transition-all transform hover:scale-105 shadow-lg flex items-center justify-center"
             >
@@ -539,10 +604,11 @@ function App() {
                 <span className="text-lg font-bold">DataAnalyst</span>
               </div>
               <p className="text-gray-400">
-                Превращаю данные в инсайты, которые помогают принимать правильные бизнес-решения
+                Превращаю данные в инсайты, которые помогают принимать
+                правильные бизнес-решения
               </p>
             </div>
-            
+
             <div>
               <h3 className="text-lg font-semibold mb-4">Контакты</h3>
               <div className="space-y-2">
@@ -560,7 +626,7 @@ function App() {
                 </div>
               </div>
             </div>
-            
+
             <div>
               <h3 className="text-lg font-semibold mb-4">Услуги</h3>
               <ul className="space-y-2 text-gray-400">
@@ -571,7 +637,6 @@ function App() {
               </ul>
             </div>
           </div>
-          
         </div>
       </footer>
     </div>
