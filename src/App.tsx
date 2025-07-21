@@ -17,6 +17,8 @@ import {
   Globe,
   Music,
   DollarSign,
+  ShieldCheck,
+  ThumbsUp
 } from "lucide-react";
 
 declare global {
@@ -228,8 +230,8 @@ function App() {
                 Анализ данных
               </h3>
               <p className="text-gray-600 mb-4">
-                Глубокий анализ ваших бизнес-данных для выявления скрытых
-                закономерностей и трендов
+              Помогаю увидеть скрытые закономерности, понять, что влияет на прибыль, 
+              и на чём стоит сосредоточиться
               </p>
               <ul className="space-y-2">
                 <li className="flex items-center text-sm text-gray-600">
@@ -255,8 +257,7 @@ function App() {
                 Визуализация
               </h3>
               <p className="text-gray-600 mb-4">
-                Создание интерактивных дашбордов и отчетов для наглядного
-                представления данных
+              Экономлю ваше время — наглядные отчёты показывают главное без копания в Excel
               </p>
               <ul className="space-y-2">
                 <li className="flex items-center text-sm text-gray-600">
@@ -282,8 +283,7 @@ function App() {
                 Автоматизация
               </h3>
               <p className="text-gray-600 mb-4">
-                Настройка автоматических процессов сбора, обработки и анализа
-                данных
+              Настраиваю сбор и обработку данных «на автопилоте» — без рутинной ручной работы
               </p>
               <ul className="space-y-2">
                 <li className="flex items-center text-sm text-gray-600">
@@ -332,11 +332,10 @@ function App() {
                 <Users className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-lg font-semibold mb-2 text-gray-800">
-                Стартапы
+                Товарный бизнес
               </h3>
               <p className="text-gray-600 text-sm">
-                Настройка аналитики с нуля и создание культуры принятия решений
-                на основе данных
+              Помогаю понять, какие товары приносят максимум прибыли и какие — замораживают деньги на складе
               </p>
             </div>
 
@@ -345,11 +344,10 @@ function App() {
                 <Globe className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-lg font-semibold mb-2 text-gray-800">
-                E-commerce
+              Онлайн-магазины
               </h3>
               <p className="text-gray-600 text-sm">
-                Анализ поведения пользователей, оптимизация конверсий и
-                увеличение продаж
+              Анализирую поведение покупателей, нахожу точки потерь и увеличиваю конверсии без лишних затрат
               </p>
             </div>
 
@@ -358,11 +356,10 @@ function App() {
                 <Target className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-lg font-semibold mb-2 text-gray-800">
-                Маркетинг
+                Реклама и продвижение
               </h3>
               <p className="text-gray-600 text-sm">
-                Оценка эффективности рекламных кампаний и оптимизация
-                маркетинговых затрат
+              Показываю, какие каналы реально работают, и помогаю сократить маркетинговые расходы без потери трафика
               </p>
             </div>
 
@@ -371,10 +368,10 @@ function App() {
                 <Award className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-lg font-semibold mb-2 text-gray-800">
-                Малый и средний бизнес
+              Услуги и офлайн-бизнес
               </h3>
               <p className="text-gray-600 text-sm">
-                Сбор полезной информации для анализа и дальнейшей оптимизации всех операционных расходов
+              Автоматизирую учёт, помогаю считать прибыль и понимать, какие услуги приносят максимум выручки
               </p>
             </div>
           </div>
@@ -394,11 +391,11 @@ function App() {
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               <span className="bg-gradient-to-r from-sky-600 to-cyan-600 bg-clip-text text-transparent">
-                Почему мне доверяют
+              Реальная польза вместо обещаний
               </span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Опыт, экспертиза и результаты, которые говорят сами за себя
+            Проверенный подход, понятные решения, реальная польза
             </p>
           </div>
 
@@ -418,25 +415,25 @@ function App() {
 
             <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all">
               <div className="flex items-center mb-4">
-                <Award className="w-8 h-8 text-sky-500 mr-3" />
+                <ShieldCheck className="w-8 h-8 text-sky-500 mr-3" />
                 <h3 className="text-xl font-semibold text-gray-800">
-                  Экспертиза
+                Конфиденциальность
                 </h3>
               </div>
               <p className="text-gray-600">
-                2+ года опыта в анализе данных для малого и среднего бизнеса
+              Соблюдаю все принципы конфиденциальной обработки данных: ограниченный доступ, локальное хранение, контроль доступа к исходным файлам.
               </p>
             </div>
 
             <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all">
               <div className="flex items-center mb-4">
-                <CheckCircle className="w-8 h-8 text-sky-500 mr-3" />
+                <ThumbsUp className="w-8 h-8 text-sky-500 mr-3" />
                 <h3 className="text-xl font-semibold text-gray-800">
                   Гарантия качества
                 </h3>
               </div>
               <p className="text-gray-600">
-                Обсуждение полученного результата. Внесение корректировок
+              Вы получаете не просто отчёт, а понятный инструмент. Обсуждаем результат, вносим правки, адаптируем под ваши задачи — до нужного вам качества.
               </p>
             </div>
           </div>
@@ -537,9 +534,13 @@ function App() {
                 <ExternalLink className="w-4 h-4 text-sky-500" />
               </div>
             </div> */}
+            
           </div>
         </div>
       </section>
+
+
+      {/* Free Section */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center">
@@ -551,13 +552,14 @@ function App() {
 
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               <span className="bg-gradient-to-r from-sky-600 to-cyan-600 bg-clip-text text-transparent">
-                Полностью бесплатно
+              Без риска для вас, <br/>
+              с пользой для всех
               </span>
             </h1>
 
             <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              Помогаю вам наладить сбор и анализ полезных для бизнеса данных.
-              Параллельно нарабатываю опыт, новые проекты для своего портфолио
+            Я провожу полноценную аналитику бесплатно — чтобы вы получили пользу, а я пополнил портфолио реальными кейсами. 
+            Всё по-взрослому: сроки, результат, забота о вашем бизнесе.
             </p>
           </div>
         </div>
