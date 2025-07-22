@@ -421,7 +421,7 @@ function App() {
                 </h3>
               </div>
               <p className="text-gray-600">
-              Соблюдаю все принципы конфиденциальной обработки данных: ограниченный доступ, локальное хранение, контроль доступа к исходным файлам.
+              Соблюдаю все принципы конфиденциальной обработки данных: ограниченный доступ, локальное хранение, контроль доступа к исходным файлам
               </p>
             </div>
 
@@ -433,31 +433,10 @@ function App() {
                 </h3>
               </div>
               <p className="text-gray-600">
-              Вы получаете не просто отчёт, а понятный инструмент. Обсуждаем результат, вносим правки, адаптируем под ваши задачи — до нужного вам качества.
+              Вы получаете не просто отчёт, а понятный инструмент. Обсуждаем результат, вносим правки, адаптируем под ваши задачи — до нужного вам качества
               </p>
             </div>
           </div>
-
-          {/* <div className="mt-16 bg-gradient-to-r from-sky-100 to-cyan-100 rounded-3xl p-8 lg:p-12">
-            <div className="grid lg:grid-cols-4 gap-8 text-center">
-              <div>
-                <div className="text-3xl font-bold text-sky-600 mb-2">50+</div>
-                <p className="text-gray-600">Проектов завершено</p>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-sky-600 mb-2">98%</div>
-                <p className="text-gray-600">Довольных клиентов</p>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-sky-600 mb-2">5+</div>
-                <p className="text-gray-600">Лет опыта</p>
-              </div>
-              <div>
-                <div className="text-3xl font-bold text-sky-600 mb-2">24/7</div>
-                <p className="text-gray-600">Поддержка</p>
-              </div>
-            </div>
-          </div> */}
         </div>
       </section>
 
@@ -492,7 +471,7 @@ function App() {
               </h3>
               <p className="text-gray-600 mb-4">
                 Автоматический мониторинг стоимости и структуры ваших
-                инвестиционных портфелей в реальном времени.
+                инвестиционных портфелей в реальном времени
               </p>
               <div className="flex items-center justify-between">
                 <span className="text-sm text-gray-500">
@@ -511,7 +490,7 @@ function App() {
               <p className="text-gray-600 mb-4">
                 Настройка процесса сбора, сортировки и обработки информации о
                 клиентах с целью повышения качества обслуживания, персонализации
-                предложений и оптимизации бизнес-решений.
+                предложений и оптимизации бизнес-решений
               </p>
               <div className="flex items-center justify-between">
                 <span className="text-sm text-gray-500">
@@ -520,21 +499,6 @@ function App() {
                 </span>
               </div>
             </div>
-
-            {/* <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all">
-              <div className="h-48 bg-gradient-to-r from-sky-200 to-cyan-200 rounded-xl mb-6 flex items-center justify-center">
-                <Database className="w-16 h-16 text-sky-600" />
-              </div>
-              <h3 className="text-xl font-semibold mb-4 text-gray-800">Производство</h3>
-              <p className="text-gray-600 mb-4">
-                Автоматизация отчетности и внедрение предиктивной аналитики
-              </p>
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-500">Результат: -25% расходы</span>
-                <ExternalLink className="w-4 h-4 text-sky-500" />
-              </div>
-            </div> */}
-            
           </div>
         </div>
       </section>
