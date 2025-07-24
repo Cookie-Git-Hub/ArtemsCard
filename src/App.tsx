@@ -15,7 +15,7 @@ import {
   Target,
   Zap,
   Globe,
-  Music,
+  FileCode,
   DollarSign,
   ShieldCheck,
   ThumbsUp
@@ -449,61 +449,129 @@ function App() {
             : "opacity-0 translate-y-10"
         }`}
       >
+
+      </section>
+
+ {/* Projects Section */}
+      <section
+        id="projects"
+        className={`py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-sky-50 to-cyan-50 transition-all duration-1000 ${
+          isVisible.projects
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-10"
+        }`}
+      >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               <span className="bg-gradient-to-r from-sky-600 to-cyan-600 bg-clip-text text-transparent">
-                Примеры реализованных проектов
+                Инструменты визуализации данных, с которыми я работаю
               </span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Кейсы успешных проектов и их влияние на бизнес клиентов
+              BI-системы и Python-графики для наглядных, понятных и полезных отчётов
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
             <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all">
               <div className="h-48 bg-gradient-to-r from-sky-200 to-cyan-200 rounded-xl mb-6 flex items-center justify-center">
-                <TrendingUp className="w-16 h-16 text-sky-600" />
+                <BarChart3 className="w-16 h-16 text-sky-600" />
               </div>
               <h3 className="text-xl font-semibold mb-4 text-gray-800">
-                ИнвестТрекер
+              Интерактивные дашборды <br/> На BI-платформах
               </h3>
               <p className="text-gray-600 mb-4">
-                Автоматический мониторинг стоимости и структуры ваших
-                инвестиционных портфелей в реальном времени
+                Создаю дашборды в Power BI и Google Data Studio: понятная визуализация продаж, расходов, выручки, клиентской базы.
               </p>
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-500">
-                  Результат: Эффективный контроль стоимости инвестиций
-                </span>
+              <div className="mb-4">
+                <h4 className="text-sm font-semibold text-gray-700 mb-2">Преимущества:</h4>
+                <ul className="space-y-1 text-sm text-gray-600">
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-sky-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    Простота восприятия: всё видно на одном экране
+                  </li>
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-sky-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    Удобно для руководителей и сотрудников без технических знаний
+                  </li>
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-sky-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    Возможность делиться ссылкой и настроить права доступа
+                  </li>
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-sky-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    Работают в облаке, без установки ПО
+                  </li>
+                </ul>
+              </div>
+              <div className="flex items-center">
+                <a 
+                  href="https://lookerstudio.google.com/reporting/fd9faf7c-3f73-48b4-99a5-7f9263e7741d" 
+                  className="text-sky-600 hover:text-sky-700 font-medium text-sm flex items-center"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  🔗 Посмотреть пример — Анализ продаж в магазине
+                </a>
               </div>
             </div>
 
             <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all">
               <div className="h-48 bg-gradient-to-r from-sky-200 to-cyan-200 rounded-xl mb-6 flex items-center justify-center">
-                <Music className="w-16 h-16 text-sky-600" />
+                <FileCode className="w-16 h-16 text-sky-600" />
               </div>
               <h3 className="text-xl font-semibold mb-4 text-gray-800">
-                Магазин музыкальных инструментов
+                Визуализация данных в Python <br/>(Jupyter Notebook)
               </h3>
               <p className="text-gray-600 mb-4">
-                Настройка процесса сбора, сортировки и обработки информации о
-                клиентах с целью повышения качества обслуживания, персонализации
-                предложений и оптимизации бизнес-решений
+                Пишу скрипты и визуализирую данные с помощью Pandas, Matplotlib, Seaborn и Plotly. Подходит для глубокой аналитики и кастомных отчётов.
               </p>
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-gray-500">
-                  Результат: Улучшение клиентского опыта — +20% повторных
-                  покупок
-                </span>
+              <div className="mb-4">
+                <h4 className="text-sm font-semibold text-gray-700 mb-2">Преимущества:</h4>
+                <ul className="space-y-1 text-sm text-gray-600">
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-sky-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    Максимальная гибкость и контроль над данными
+                  </li>
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-sky-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    Можно строить любые графики и добавлять логику
+                  </li>
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-sky-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    Идеально подходит для глубокого анализа и подготовки отчётов с пояснениями
+                  </li>
+                  <li className="flex items-start">
+                    <span className="w-2 h-2 bg-sky-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                    Возможность автоматизации и повторного запуска
+                  </li>
+                </ul>
+              </div>
+              <div className="flex items-center">
+                <a 
+                  href="https://www.kaggle.com/code/artemkabseu/musicmarket" 
+                  className="text-sky-600 hover:text-sky-700 font-medium text-sm flex items-center"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  🔗 Посмотреть пример — Jupyter (Kaggle)
+                </a>
+              </div>
+              <div className="flex items-center">
+                <a 
+                  href="https://colab.research.google.com/drive/14-58QP82YN5XFvOZzESNo9U5cTN88ZfD?usp=sharing" 
+                  className="text-sky-600 hover:text-sky-700 font-medium text-sm flex items-center"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  🔗 Посмотреть пример — Jupyter (Google Colab)
+                </a>
               </div>
             </div>
           </div>
         </div>
       </section>
-
-
       {/* Free Section */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
